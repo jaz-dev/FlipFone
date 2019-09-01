@@ -1,0 +1,42 @@
+Tutorial
+1. Click the circle to start recording the number of flips
+2. Flip your phone in the air so it rotates in landscape mode 
+3. Try to get the number of flips within the range. (1 flip = 360 degrees)
+4. Repeat process after every time you flip your phone until you flip out of range
+
+Tips
+1. Flip your phone onto a soft landing area such as a bed or coach if available
+2. Use both hands to flip
+3. Be aware of your surroundings
+
+spinningFone = (ImageView) rootView.findViewById(R.id.spinningfone);
+spinningFone.setImageResource(R.drawable.spinningfone);
+
+
+
+                if(allow) {
+                    if (recordStatus == true) {
+                        daClassic.startControl("#00ff00", false);
+                    } else if (Math.abs(zVal) > 3) {
+                        daClassic.startControl("#ff0000", false);
+                    } else {
+                        daClassic.startControl("#000000", true);
+                    }
+                }
+
+    public void delay(){
+        mCallback.changeAllow();
+        can = false;
+        button.setTextColor(Color.parseColor("#ff0000"));
+
+        new CountDownTimer(1000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                Log.i("wtf",millisUntilFinished+"");
+            }
+
+            public void onFinish() {
+                mCallback.changeAllow();
+            }
+        }.start();
+    }
